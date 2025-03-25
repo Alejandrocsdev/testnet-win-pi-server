@@ -8,6 +8,10 @@ const app = express()
 const port = process.env.PORT
 // 引用前後端網域
 const { serverUrl } = require('./utils')
+// 引用路由模組
+const routes = require('./routes')
+// 掛載路由中間件
+app.use('/api', routes)
 // 根路由
 app.get('/', (req, res) => res.status(200).json({ message: 'Server is up and running.', success: true }))
 // 監聽伺服器運行
